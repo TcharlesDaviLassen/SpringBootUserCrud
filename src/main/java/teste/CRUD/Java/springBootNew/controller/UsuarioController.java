@@ -22,20 +22,20 @@ public class UsuarioController {
 
     // Acessa o formulario
     @GetMapping("/form")
-    public String funcionariosForm(Usuarios usuario) {
+    public String funcionariosForm(Usuarios usuarios) {
     	
         return "addFuncionariosForm";
     }
 
     // Adiciona novo funcionario
     @PostMapping("/add")
-    public String novo(@Valid Usuarios usuario, BindingResult result) {
+    public String novo(@Valid Usuarios usuarios, BindingResult result) {
 
         if (result.hasFieldErrors()) {
             return "redirect:/form";
         }
 
-        usuarioRepository.save(usuario);
+        usuarioRepository.save(usuarios);
 
         return "redirect:/home";
     }
@@ -44,10 +44,10 @@ public class UsuarioController {
     @GetMapping("form/{id}")
     public String updateForm(Model model, @PathVariable(name = "id") int id) {
 
-        Usuarios usuario = usuarioRepository.findById(id)
+        Usuarios usuarios = usuarioRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
        
-        model.addAttribute("funcionario", usuario);
+        model.addAttribute("usuarios", usuarios);
         return "atualizaForm";
     }
 
@@ -67,10 +67,10 @@ public class UsuarioController {
     @CacheEvict(value = "funcionarios", allEntries = true)
     public String delete(@PathVariable(name = "id") int id, Model model) {
 
-        Usuarios usuario = usuarioRepository.findById(id)
+        Usuarios usuarios = usuarioRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
 
-        usuarioRepository.delete(usuario);
+        usuarioRepository.delete(usuarios);
         return "redirect:/home";
     }
 
