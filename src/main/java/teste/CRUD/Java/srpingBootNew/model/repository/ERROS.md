@@ -1,0 +1,13 @@
+`Unsatisfied dependency expressed through field 'funcRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'funcionarioRepository' defined in com.cod3r.gerenciadorfuncionarios.model.repository.FuncionarioRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.cod3r.gerenciadorfuncionarios.model.repository.FuncionarioRepository.findBySetor(com.cod3r.gerenciadorfuncionarios.enums.FuncionarioSetor)! Reason: Failed to create query for method public abstract java.util.List com.cod3r.gerenciadorfuncionarios.model.repository.FuncionarioRepository.findBySetor(com.cod3r.gerenciadorfuncionarios.enums.FuncionarioSetor)! No property setor found for type Funcionario! Did you mean 'setores'?; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.cod3r.gerenciadorfuncionarios.model.repository.FuncionarioRepository.findBySetor(com.cod3r.gerenciadorfuncionarios.enums.FuncionarioSetor)! No property setor found for type Funcionario! Did you mean 'setores'?`
+
+Esse erro indica que o Spring não consegue criar um bean para o repositório `FuncionarioRepository` devido a um problema na criação da consulta `findBySetor`. A mensagem de erro específica sugere que não foi encontrado um atributo chamado `setor` na entidade `Funcionario` e sugere que você pode ter querido dizer `setores`.
+
+Aqui estão algumas possíveis soluções para resolver esse problema:
+
+Verifique a sua entidade `Funcionario` e certifique-se de que ela possui um atributo `setor` corretamente definido. O nome do atributo deve ser igual ao que está sendo usado na consulta `findBySetor`.
+
+Verifique se você importou corretamente as classes `Funcionario` e `FuncionarioSetor` nos seus repositórios e em outros lugares onde você está usando essas entidades. Certifique-se de que as importações estejam corretas e não haja conflitos de nomes.
+
+Verifique se a anotação `@Entity` está corretamente colocada na classe Funcionario e se os atributos estão mapeados corretamente com as anotações `@Column` ou `@JoinColumn`, se necessário.
+
+Se você realmente quer fazer a consulta por setores, altere o método `findBySetor` para `findBySetores` no `FuncionarioRepository` e verifique se a entidade Funcionario possui um atributo chamado setores.
