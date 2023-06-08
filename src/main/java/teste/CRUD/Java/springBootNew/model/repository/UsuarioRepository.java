@@ -1,8 +1,8 @@
-package teste.CRUD.Java.srpingBootNew.model.repository;
+package teste.CRUD.Java.springBootNew.model.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import teste.CRUD.Java.srpingBootNew.enums.UsuarioSetor;
-import teste.CRUD.Java.srpingBootNew.model.Usuarios;
+import teste.CRUD.Java.springBootNew.enums.UsuarioSetor;
+import teste.CRUD.Java.springBootNew.model.Usuarios;
 
 import java.util.List;
 

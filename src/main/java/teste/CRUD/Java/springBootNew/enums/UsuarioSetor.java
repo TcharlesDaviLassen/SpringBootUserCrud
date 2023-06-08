@@ -1,4 +1,4 @@
-package teste.CRUD.Java.srpingBootNew.enums;
+package teste.CRUD.Java.springBootNew.enums;
 
 public enum UsuarioSetor {
     TECNOLOGIA("tecnologia"),

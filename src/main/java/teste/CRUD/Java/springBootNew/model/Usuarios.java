@@ -1,11 +1,11 @@
-package teste.CRUD.Java.srpingBootNew.model;
+package teste.CRUD.Java.springBootNew.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import teste.CRUD.Java.srpingBootNew.enums.UsuarioSetor;
+import teste.CRUD.Java.springBootNew.enums.UsuarioSetor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

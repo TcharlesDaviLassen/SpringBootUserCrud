@@ -1,4 +1,4 @@
-package teste.CRUD.Java.srpingBootNew;
+package teste.CRUD.Java.springBootNew;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

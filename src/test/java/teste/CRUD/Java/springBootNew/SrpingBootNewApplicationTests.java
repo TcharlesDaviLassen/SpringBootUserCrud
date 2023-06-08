@@ -1,4 +1,4 @@
-package teste.CRUD.Java.srpingBootNew;
+package teste.CRUD.Java.springBootNew;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

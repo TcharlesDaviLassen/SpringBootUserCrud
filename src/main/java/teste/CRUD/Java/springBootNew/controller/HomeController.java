@@ -1,13 +1,13 @@
-package teste.CRUD.Java.srpingBootNew.controller;
+package teste.CRUD.Java.springBootNew.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import teste.CRUD.Java.srpingBootNew.enums.UsuarioSetor;
-import teste.CRUD.Java.srpingBootNew.model.Usuarios;
-import teste.CRUD.Java.srpingBootNew.model.repository.UsuarioRepository;
+import teste.CRUD.Java.springBootNew.enums.UsuarioSetor;
+import teste.CRUD.Java.springBootNew.model.Usuarios;
+import teste.CRUD.Java.springBootNew.model.repository.UsuarioRepository;
 
 import java.util.List;
 
