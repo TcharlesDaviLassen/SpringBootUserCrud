@@ -20,11 +20,11 @@ public class HomeController {
     
     
 
-    @GetMapping("/home")
+    @GetMapping({"/home"})
     public String home(Model model) {
     	List<Usuarios> usuarios = usuarioRepository.findAll();
-    	
-        var dados = model.addAttribute("usuarios", usuarios);
+
+        model.addAttribute("usuarios", usuarios);
         return "home";
     }
    
@@ -33,7 +33,7 @@ public class HomeController {
     public String setor(@RequestParam String setor, Model model) {
     	UsuarioSetor usuarioSetor = UsuarioSetor.valueOf(setor.toUpperCase());
         List<Usuarios> usuarios = usuarioRepository.findBySetor(usuarioSetor);
-       
+
         model.addAttribute("usuarios", usuarios);
         return "home";
     }

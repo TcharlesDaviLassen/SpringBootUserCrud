@@ -14,7 +14,7 @@ import teste.CRUD.Java.springBootNew.model.repository.UsuarioRepository;
 @Controller
 public class UsuarioController {
 
-    private UsuarioRepository usuarioRepository;
+    final private UsuarioRepository usuarioRepository;
 
     public UsuarioController(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
@@ -22,12 +22,12 @@ public class UsuarioController {
 
     // Acessa o formulario
     @GetMapping("/form")
-    public String funcionariosForm(Usuarios usuarios) {
+    public String usuariosForm(Usuarios usuarios) {
     	
-        return "addFuncionariosForm";
+        return "addUsuariosForm";
     }
 
-    // Adiciona novo funcionario
+    // Adiciona novo usuario
     @PostMapping("/add")
     public String novo(@Valid Usuarios usuarios, BindingResult result) {
 
@@ -51,20 +51,20 @@ public class UsuarioController {
         return "atualizaForm";
     }
 
-    // Atualiza funcionario
+    // Atualiza usuario
     @PostMapping("update/{id}")
-    public String alterarProduto(@Valid Usuarios usuario, BindingResult result, @PathVariable int id) {
+    public String alterarProduto(@Valid Usuarios usuarios, BindingResult result, @PathVariable int id) {
 
         if (result.hasErrors()) {
             return "redirect:/form";
         }
 
-        usuarioRepository.save(usuario);
+        usuarioRepository.save(usuarios);
         return "redirect:/home";
     }
 
     @GetMapping("delete/{id}")
-    @CacheEvict(value = "funcionarios", allEntries = true)
+    @CacheEvict(value = "usuarios", allEntries = true)
     public String delete(@PathVariable(name = "id") int id, Model model) {
 
         Usuarios usuarios = usuarioRepository.findById(id)
